@@ -37,17 +37,19 @@ export class NNLayer implements NNLayerObj {
 
     calculateValues(inputValues: number[]): number[] {
         const resultArray = [];
-        for (let i = 0; i < this.nodes.length; i++) {
-            resultArray.push(this.nodes[i].calculateValue(inputValues));
+        for (const node of this.nodes) {
+            resultArray.push(node.calculateValue(inputValues));
         }
+
         return resultArray;
     }
 
     get nodeActivity() {
         const result = [];
-        for (let i = 0; i < this.nodes.length; i++) {
-            result.push(this.nodes[i].activity);
+        for (const node of this.nodes) {
+            result.push(node.activity);
         }
+
         return result;
     }
 }
